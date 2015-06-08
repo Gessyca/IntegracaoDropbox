@@ -3,16 +3,17 @@ package integracao.dropbox.controller;
 import integracao.dropbox.entidade.Usuario;
 import integracao.dropbox.jpa.UsuarioJPA;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 
-@ManagedBean
+@Named
 @ViewScoped
-public class UsuarioController {
+public class UsuarioController implements Serializable {
 
 	@Inject
 	private UsuarioJPA jpa;

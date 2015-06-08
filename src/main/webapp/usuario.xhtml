@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+<h:body>
+	<ui:composition template="layout.xhtml">
+		<ui:define name="title">
+		</ui:define>
+		<ui:define name="content">
+			<div class="modal fade" id="novoUsuario" tabindex="-1" role="dialog"
+				aria-labelledby="novoUsuario" aria-hidden="true">
+				<div class="modal-dialog">
+					<h:form id="form1">
+						<div class="panel panel-primary">
+							<div class="panel-heading">CADASTRO NOVO USUARIO</div>
+							<div class="modal-content">
+								<div class="modal-body">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<h:outputLabel value="Nome:" styleClass="control-label" />
+												<h:inputText class="form-control"
+													value="#{usuarioController.u.usuario}" p:required="true" />
+											</div>
+										</div>
+										
+										<div class="col-md-6">
+											<div class="form-group">
+												<h:outputLabel value="Senha:" styleClass="control-label" />
+												<h:inputSecret class="form-control"
+													value="#{usuarioController.u.senha}" p:required="true" />
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<h:outputLabel value="Email Dropbox:"
+													styleClass="control-label" />
+												<h:inputText class="form-control"
+													value="#{usuarioController.u.emailDropbox}"
+													p:required="true" />
+											</div>
+										</div>
+										
+										<div class="col-md-6">
+											<div class="form-group">
+												<h:outputLabel value="Senha Dropbox:"
+													styleClass="control-label" />
+												<h:inputSecret class="form-control"
+													value="#{usuarioController.u.senhaDropbox}"
+													p:required="true" />
+											</div>
+										</div>
+										
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button jsf:id="btSalvar"
+										jsf:action="#{usuarioController.salvar()}"
+										class="btn btn-primary" type="submit">
+										<span class="glyphicon glyphicon-floppy-disk" />
+									</button>
+									<button value="Voltar" class="btn btn-default"
+										data-dismiss="modal">
+										<span class="glyphicon glyphicon-off" />
+									</button>
+								</div>
+							</div>
+						</div>
+					</h:form>
+				</div>
+			</div>
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<a href="#" class="btn btn-primary" data-toggle="modal"
+						data-target="#novoUsuario"> <span
+						class="glyphicon glyphicon-plus-sign" /> Novo Usuario
+					</a>
+				</div>
+				<h:form>
+					<h:dataTable id="usuariosTables"
+						value="#{usuarioController.listaUsuarios}" var="u"
+						styleClass="table table-striped"
+						columnClasses="campoG,campoG,campo">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Id" />
+							</f:facet>
+							<h:inputText value="#{u.id}" class="form-control semBorda"
+								p:type="string" p:required="true" disabled="true" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Usuario" />
+							</f:facet>
+							<h:inputText value="#{u.usuario}" class="form-control semBorda"
+								p:type="string" p:required="true" disabled="true" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Email Dropbox" />
+							</f:facet>
+							<h:inputText value="#{u.emailDropbox}" class="form-control semBorda"
+								p:type="string" p:required="true" disabled="true" />
+						</h:column>
+						<h:column>
+							<button jsf:id="btRemover"
+								jsf:action="#{usuarioController.remover()}"
+								class="btn btn-danger" type="submit" title="Remover">
+								<span class="glyphicon glyphicon-trash" />
+								<f:setPropertyActionListener
+									target="#{usuarioController.u}" value="#{u}" />
+							</button>
+							<button jsf:id="btEditar"
+								jsf:action="#{usuarioController.salvar()}" class="btn btn-warning"
+								type="submit" title="Editar">
+								<span class="glyphicon glyphicon-pencil" />
+								<f:setPropertyActionListener
+									target="#{jogadorController.u}" value="#{u}" />
+							</button>
+						</h:column>
+					</h:dataTable>
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

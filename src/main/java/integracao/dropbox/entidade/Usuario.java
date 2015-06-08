@@ -20,7 +20,7 @@ public class Usuario implements Serializable {
 	private int id;
 	private String usuario;
 	@Column(name = "email_dropbox")
-	private String emailDropBox;
+	private String emailDropbox;
 	private String senha;
 	@Column(name = "senha_dropbox")
 	private String senhaDropbox;
@@ -45,12 +45,12 @@ public class Usuario implements Serializable {
 		this.usuario = usuario;
 	}
 
-	public String getEmailDropBox() {
-		return emailDropBox;
+	public String getEmailDropbox() {
+		return emailDropbox;
 	}
 
-	public void setEmailDropBox(String emailDropBox) {
-		this.emailDropBox = emailDropBox;
+	public void setEmailDropbox(String emailDropBox) {
+		this.emailDropbox = emailDropBox;
 	}
 
 	public String getSenha() {
