@@ -24,6 +24,10 @@ public class Usuario implements Serializable {
 	private String senha;
 	@Column(name = "senha_dropbox")
 	private String senhaDropbox;
+	
+	public Usuario() {
+		super();
+	}
 
 	public int getId() {
 		return id;
