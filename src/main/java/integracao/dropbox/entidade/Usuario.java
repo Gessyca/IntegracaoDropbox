@@ -26,7 +26,11 @@ public class Usuario implements Serializable {
 	private String senha;
 	@Column(name = "senha_dropbox")
 	private String senhaDropbox;
-	
+	@Column(name = "app_key")
+	private String appKey;
+	@Column(name = "app_secret")
+	private String appSecret;
+
 	public Usuario() {
 		super();
 	}
@@ -69,6 +73,22 @@ public class Usuario implements Serializable {
 
 	public void setSenhaDropbox(String senhaDropbox) {
 		this.senhaDropbox = senhaDropbox;
+	}
+
+	public String getAppKey() {
+		return appKey;
+	}
+
+	public void setAppKey(String appKey) {
+		this.appKey = appKey;
+	}
+
+	public String getAppSecret() {
+		return appSecret;
+	}
+
+	public void setAppSecret(String appSecret) {
+		this.appSecret = appSecret;
 	}
 
 }

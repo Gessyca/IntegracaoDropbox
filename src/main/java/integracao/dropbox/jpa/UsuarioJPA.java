@@ -37,4 +37,10 @@ public class UsuarioJPA implements Serializable {
 		String jpql = "select u from Usuario u order by u.usuario";
 		return em.createQuery(jpql, Usuario.class).getResultList();
 	}
+
+	public Usuario buscarUsuarioPorNomeSenha(String usuario, String senha) {
+		String jpql = "select u from Usuario u where u.usuario like ?1 and u.senha like ?2";
+		return em.createQuery(jpql, Usuario.class).setParameter(1, usuario)
+				.setParameter(2, senha).getSingleResult();
+	}
 }
