@@ -2,6 +2,7 @@ package integracao.dropbox.jpa;
 
 import integracao.dropbox.entidade.Usuario;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,7 +10,7 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 @Transactional
-public class UsuarioJPA {
+public class UsuarioJPA implements Serializable {
 
 	@PersistenceContext(unitName = "dropbox")
 	private EntityManager em;
@@ -34,6 +35,6 @@ public class UsuarioJPA {
 
 	public List<Usuario> buscarTodosUsuarios() {
 		String jpql = "select u from Usuario u order by u.usuario";
-		return em.createNativeQuery(jpql, Usuario.class).getResultList();
+		return em.createQuery(jpql, Usuario.class).getResultList();
 	}
 }

@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ViewScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -27,11 +27,8 @@ public class UsuarioController implements Serializable {
 	}
 
 	public void salvar() {
-		if (u.getId() > 0) {
-			jpa.atualizar(u);
-		} else {
-			jpa.salvar(u);
-		}
+		jpa.salvar(u);
+		inicializar();
 	}
 
 	public void remover() {

@@ -27,7 +27,7 @@
 													value="#{usuarioController.u.usuario}" p:required="true" />
 											</div>
 										</div>
-										
+
 										<div class="col-md-6">
 											<div class="form-group">
 												<h:outputLabel value="Senha:" styleClass="control-label" />
@@ -45,7 +45,7 @@
 													p:required="true" />
 											</div>
 										</div>
-										
+
 										<div class="col-md-6">
 											<div class="form-group">
 												<h:outputLabel value="Senha Dropbox:"
@@ -55,7 +55,7 @@
 													p:required="true" />
 											</div>
 										</div>
-										
+
 									</div>
 								</div>
 								<div class="modal-footer">
@@ -90,37 +90,27 @@
 							<f:facet name="header">
 								<h:outputText value="Id" />
 							</f:facet>
-							<h:inputText value="#{u.id}" class="form-control semBorda"
-								p:type="string" p:required="true" disabled="true" />
+							#{u.id}
 						</h:column>
 						<h:column>
 							<f:facet name="header">
 								<h:outputText value="Usuario" />
 							</f:facet>
-							<h:inputText value="#{u.usuario}" class="form-control semBorda"
-								p:type="string" p:required="true" disabled="true" />
+							#{u.usuario}
 						</h:column>
 						<h:column>
 							<f:facet name="header">
 								<h:outputText value="Email Dropbox" />
 							</f:facet>
-							<h:inputText value="#{u.emailDropbox}" class="form-control semBorda"
-								p:type="string" p:required="true" disabled="true" />
+							#{u.emailDropbox}
 						</h:column>
 						<h:column>
 							<button jsf:id="btRemover"
 								jsf:action="#{usuarioController.remover()}"
 								class="btn btn-danger" type="submit" title="Remover">
 								<span class="glyphicon glyphicon-trash" />
-								<f:setPropertyActionListener
-									target="#{usuarioController.u}" value="#{u}" />
-							</button>
-							<button jsf:id="btEditar"
-								jsf:action="#{usuarioController.salvar()}" class="btn btn-warning"
-								type="submit" title="Editar">
-								<span class="glyphicon glyphicon-pencil" />
-								<f:setPropertyActionListener
-									target="#{jogadorController.u}" value="#{u}" />
+								<f:setPropertyActionListener target="#{usuarioController.u}"
+									value="#{u}" />
 							</button>
 						</h:column>
 					</h:dataTable>
